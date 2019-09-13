@@ -18,3 +18,10 @@ myPElements.textContent = 'This is the new paragraph text changed at runtime usi
 const allPElements = document.querySelectorAll('p')
 
 allPElements.forEach((p) => p.textContent = "This is changed using Loop in JS")
+
+// Adding new element a runtime
+const newPara = document.createElement('p')
+// Setting content
+newPara.textContent = 'This was added using JS'
+// Finally, adding object to DOM
+document.querySelector('body').appendChild(newPara)
