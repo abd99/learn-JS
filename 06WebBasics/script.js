@@ -25,3 +25,6 @@ const newPara = document.createElement('p')
 newPara.textContent = 'This was added using JS'
 // Finally, adding object to DOM
 document.querySelector('body').appendChild(newPara)
+
+// Register Event Listener for the button
+document.querySelector('button').addEventListener('click', (event) => event.target.textContent = 'I was clicked!')
