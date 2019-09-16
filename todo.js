@@ -9,9 +9,55 @@ removeButton.addEventListener('click', removeItem)
 // Get the object of the entire list
 let ul = document.getElementById('list')
 
-
+// function to add new tasks
 function addItem() {
+    // Get the input entered by the user
+    let input = document.getElementById('input')
+    let textValue = input.value
+    // Create a textNode with the value entered by user
+    let textNode = document.createTextNode(textValue)
+    console.log(textNode);
+    
 
+    // Check if input is empty
+    if (textValue === '') {
+
+        // Create new element to show message
+        newPara = document.createElement('p')
+        newPara.textContent = 'Please enter an input'
+        // Insert element before the input box
+        input.insertAdjacentElement("beforebegin",newPara)
+        setTimeout(() => {
+            // Remove element after 5 seconds
+            newPara.parentElement.removeChild(newPara)
+        }, 5000);
+        return
+
+    } else {
+
+        // Create a new list item
+        let li = document.createElement('li')
+        // Create a new checkbox
+        let checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.setAttribute('id', 'check')
+        // Create a new label
+        let label = document.createElement('label')
+
+        // Add the things to view
+        // Append the checkbox into the list item
+        li.appendChild(checkbox)
+        // Append the textNode into the label item
+        label.appendChild(textNode)
+        // Append the label into the list item
+        li.appendChild(label)
+        // Insert the new list item before the existing first (0th) list item in the ul
+        ul.insertBefore(li, ul.childNodes[0])
+        setTimeout(() => {
+            // Show after a delay of 5 ms
+            li.className = 'visual'
+        }, 3);
+    }
 }
 
 // function to remove completed tasks
