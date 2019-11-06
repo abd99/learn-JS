@@ -77,6 +77,7 @@ function addItem() {
             // Show after a delay of 5 ms
             li.className = 'visual'
         }, 3);
+        input.value = ''
     }
 }
 
