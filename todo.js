@@ -113,7 +113,11 @@ function removeItem() {
 
 function loadFromLocalStorage() {
     // Get data from localStorage
-    todosObject = JSON.parse(localStorage.getItem('todos'))
+    // Read JSONString from localStorage
+    let todosJSONString = localStorage.getItem('todos')
+    // Check if data exists or not
+    if(todosJSONString != null)
+        todosObject = JSON.parse(todosJSONString)
     // Get the todo from the localStorage
     todosObject.names.forEach((todoName) => {
 
