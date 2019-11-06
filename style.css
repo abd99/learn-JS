@@ -3,12 +3,12 @@ body {
 }
 
 #container {
-  width: 350px;
+  width: 450px;
   height: auto;
   margin: 0 auto;
   text-align: center;
   background: white;
-  height: 800px;
+  height: 600px;
   overflow-y: auto;
   color: black;
   border: 10px solid #01a3a4;
