@@ -92,7 +92,20 @@ function removeItem() {
         // and it shouldn't get skipped from validating if checked
         // Check if current element exists and it is checked
         while (li[index] && li[index].children[0].checked) {  
-            // Remove the current child   
+            // Remove todo from localStorage
+            // Get textValue key to be deleted
+            const key = li[index].children[1].textContent
+            // Read JSONString from localStorage
+            let todosJSONString = localStorage.getItem('todos')
+            // Check if data exists or not
+            if(todosJSONString != null)
+                todosObject = JSON.parse(todosJSONString)
+            //Remove the key from the array
+            todosObject.names = todosObject.names.filter(value => value != key)
+            console.log(todosObject);
+            // Store new todoObject into localStorage in JSON String form
+            localStorage.setItem('todos', JSON.stringify(todosObject))
+            // Remove the current child from the view
             ul.removeChild(li[index])               
         }
     }
